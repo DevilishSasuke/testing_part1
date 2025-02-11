@@ -2,7 +2,7 @@ import math
 import sys
 from typing import Tuple
 
-permitted_types = [type(int), type(float)]
+permitted_types = [int, float]
 def calc_roots(a: float, b: float, c: float) -> Tuple[float, float] | None:
   """
     solve the quadratic equations
