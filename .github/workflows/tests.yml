@@ -34,13 +34,10 @@ jobs:
       - name: Install dependencies
         run: python -m pip install -r req.txt
 
-      # Run all tests in pytest folder
+      # Run all pytests and save report to coverage.xml to share it to sonarcloud
+      # save report in html format in case that coverall is inavailable
       - name: Run pytests
-        run: python -m pytest
-
-      # Run locally in case that coveralls is inavailable
-      - name: Check covering locally
-        run: python -m pytest --cov=roots --cov-report=html
+        run: python -m pytest --cov=roots --cov-report=xml --cov-report=html
 
       # Run SonarCloud
       - name: Run SonarCloud analysis
