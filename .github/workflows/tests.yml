@@ -36,4 +36,14 @@ jobs:
 
       # Run all tests in pytest folder
       - name: Run pytests
-        run: python -m pytest 
+        run: python -m pytest
+
+      # Run locally in case that coveralls is inavailable
+      - name: Check covering locally
+        run: python -m pytest --cov=roots --cov-report=html
+
+      # Run SonarCloud
+      - name: Run SonarCloud analysis
+        uses: sonarsource/sonarcloud-github-action@v4.0.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
