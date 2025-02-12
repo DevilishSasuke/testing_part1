@@ -22,17 +22,17 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check out repository
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
 
       # Install python with required version
       - name: Set up python
-      - uses: actions/setup-python@v5
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11.5"
 
       # Install libs that app requires
       - name: Install dependencies
-      - run: python -m pip install -r req.txt
+        run: python -m pip install -r req.txt
 
       # Run all tests in pytest folder
       - name: Run pytests
